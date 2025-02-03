@@ -1,0 +1,133 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS system-specific files
+.Spotlight-V100
+.Trashes
+._*
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Editor and IDE settings
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Logs and runtime files
+*.log
+*.pid
+*.seed
+*.cover
+*.swp
+*.swo
+
+# Python packaging
+*.egg
+*.egg-info/
+dist/
+build/
+wheels/
+*.manifest
+*.spec
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*.swp
+*.temp
+*.~*
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+.nox/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Test and debug outputs
+*.out
+*.err
+pytestdebug.log
+
+# Local configuration files
+*.env
+*.ini
+*.toml
+*.yaml
+*.yml
+
+# C extensions
+*.so
+
+# Flask instance folder
+instance/
+
+# Static files and uploads
+staticfiles/
+uploads/
+
+# Database files
+*.db
+*.sqlite3
+
+# MyPy cache
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Type-hint checking results
+.pyre/
+.pyright/
+
+# macOS-specific files
+*.localized
+
+# Ignore compiled code
+*.o
+*.obj
+*.dll
+*.class
+*.jar
+*.war
+*.pyc
+
+# Other ignored files
+*.iml
+*.ipr
+*.iws
+*.class
+*.iml
+*.class
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# Exclude other unnecessary files
+*.snap
+*.lock
+*.lock.json
+.pnpm-debug.log
