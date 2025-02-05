@@ -112,5 +112,49 @@ def get_voronoi():
         cur.close()
         conn.close()
 
+@app.route('/api/heatmap')
+def get_heatmap():
+    """ Returns heatmap data as a GeoJSON FeatureCollection """
+    amenity_param = request.args.get('amenity')
+    if not amenity_param:
+        return jsonify({"error": "Missing required parameter: amenity"}), 400
+
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    query = f"""
+        SELECT ST_AsGeoJSON(way) AS geometry
+        FROM planet_osm_point
+        WHERE amenity = %s;
+    """
+
+    try:
+        cur.execute(query, (amenity_param,))
+        rows = cur.fetchall()
+
+        features = []
+        for row in rows:
+            geometry = row[0]
+            if geometry:
+                feature = {
+                    "type": "Feature",
+                    "geometry": json.loads(geometry),
+                    "properties": {}
+                }
+                features.append(feature)
+
+        geojson = {
+            "type": "FeatureCollection",
+            "features": features
+        }
+
+        return jsonify(geojson)
+    except Exception as e:
+        print(f"Error fetching heatmap data: {e}")
+        return jsonify({"error": "Error fetching heatmap data"}), 500
+    finally:
+        cur.close()
+        conn.close()
+
 if __name__ == '__main__':
     app.run(debug=True, port=5003)
